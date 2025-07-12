@@ -125,7 +125,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
                     width: 'fit-content'
                   }}
                 >
-                  How We Build It
+                  Get Your Free Marketing Audit & 90-Day Roadmap
                 </span>
               </div>
             </motion.button>
