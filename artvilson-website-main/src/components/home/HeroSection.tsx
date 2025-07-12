@@ -89,22 +89,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
             className="mb-6 space-y-2"
             variants={titleVariants}
           >
-            <div className="text-4xl md:text-6xl lg:text-7xl font-bold">
+            <div className="text-3xl md:text-5xl lg:text-6xl font-bold">
+              <div className="text-[#161616]">Get Your Marketing Department Ready in 48 Hours</div>
               <div style={{
                 background: 'linear-gradient(90deg, #FF7A00 0%, #FF4D4D 50%, #9333EA 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text'
-              }}>AI Voice Assistant</div>
-              <div className="text-3xl md:text-5xl lg:text-6xl text-[#161616]">for Business Calls</div>
+              }}>Skip the hiring headaches.</div>
             </div>
             
             <motion.div 
               className="mt-6 space-y-2"
               variants={subtitleVariants}
             >
-              <div className="text-base text-gray-600">
-                iSendora answers, schedules & confirms — totally hands‑free
+              <div className="text-sm text-gray-600">
+                Get a proven European team that specializes in growing E‑commerce & Beauty businesses in the UAE & USA markets.
               </div>
             </motion.div>
           </motion.div>
@@ -115,22 +115,27 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
             variants={ctaGroupVariants}
           >
             <motion.button 
-              onClick={() => handleScroll('demo-call')}
+              onClick={() => handleScroll('process-steps')}
               className="bg-transparent text-black border-[1.5px] border-[#1D1D1F] rounded-[999px] px-6 py-2 text-sm font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              Try a Live Call
+              <span style={{
+                background: 'linear-gradient(90deg, #FF7A00 0%, #FF4D4D 50%, #9333EA 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>How We Build It</span>
             </motion.button>
-            <p style={{
-              background: 'linear-gradient(90deg, #FF7A00 0%, #FF4D4D 50%, #9333EA 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }} className="text-sm font-medium">
-              You'll get a real call in under 1 minute.
-            </p>
+            <div className="space-y-1">
+              <p className="text-black text-base font-medium">
+                No long-term contracts required
+              </p>
+              <p className="text-black text-base font-medium">
+                First results guaranteed within 30 days
+              </p>
+            </div>
           </motion.div>
         </div>
       </motion.section>
