@@ -63,7 +63,7 @@ export const useFormState = ({ executeRecaptcha }: UseFormStateProps) => {
     try {
       // Отправка в Telegram
       const telegramBotToken = '7769253092:AAF7SVMgAWuMYt51KW8BOWoHBKV3Wi2_xtE';
-      const chatId = '@your_channel_or_chat_id'; // Замените на ваш chat_id или канал
+      const chatId = '7769253092'; // Используем ID бота как временное решение
       
       const message = `
 🔔 Новая заявка с сайта!
