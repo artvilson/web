@@ -116,17 +116,27 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
           >
             <motion.button 
               onClick={() => handleScroll('process-steps')}
-              className="bg-transparent text-black border-[1.5px] border-[#1D1D1F] rounded-[999px] px-6 py-2 text-sm font-medium"
+              className="relative inline-block"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <span style={{
-                background: 'linear-gradient(90deg, #FF7A00 0%, #FF4D4D 50%, #9333EA 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}>How We Build It</span>
+              <div className="relative z-10 px-8 py-4 rounded-2xl bg-white/90 backdrop-blur-sm border border-gray-500/10 shadow-xl">
+                <span 
+                  className="text-2xl font-bold"
+                  style={{
+                    background: 'linear-gradient(90deg, #FF7A00 0%, #FF4D4D 50%, #9333EA 100%)',
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    textFillColor: 'transparent',
+                    display: 'inline-block',
+                    width: 'fit-content'
+                  }}
+                >
+                  How We Build It
+                </span>
+              </div>
             </motion.button>
             <div className="space-y-1">
               <p className="text-black text-base font-medium">
