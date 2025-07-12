@@ -160,104 +160,105 @@ export function Header({ isMenuOpen, setIsMenuOpen, handleScroll, isDarkMode, to
       onClick={handleHeaderClick}
     >
       <div className="container mx-auto px-4 py-4">
-      <div className="container mx-auto px-4 py-3">
-        <motion.div 
-          className="flex justify-between items-center"
-          variants={staggerContainer}
-        >
+        <div className="container mx-auto px-4 py-3">
           <motion.div 
-            className="flex items-center gap-2"
-            variants={fadeIn}
-          >
-            <Link to="/" className="block" onClick={handleLogoClick}>
-              <img 
-                ref={logoRef}
-                src={LOGO_URL}
-                alt="ArtVilson Media Logo"
-                className="h-12 w-auto transform-gpu"
-                loading="eager"
-                decoding="async"
-                style={{ 
-                  opacity: 0,
-                  willChange: 'transform, opacity'
-                }}
-              />
-            </Link>
-          </motion.div>
-          
-          <motion.div 
-            className="hidden md:flex items-center gap-8"
+            className="flex justify-between items-center"
             variants={staggerContainer}
           >
-            {navLinks.map((link) => (
-              <motion.button
-                key={link.id}
-                onClick={() => handleScroll(link.id)}
-                className="text-gray-900 font-medium text-sm hover:text-blue-600 transition-colors"
-                variants={fadeIn}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                {link.label}
-              </motion.button>
-            ))}
-          </motion.div>
-          
-          <motion.div 
-            className="flex items-center gap-4"
-            variants={staggerContainer}
-          >
-            <motion.div
-              className="hidden md:block"
+            <motion.div 
+              className="flex items-center gap-2"
               variants={fadeIn}
             >
-              <button
-                onClick={() => handleScroll('contact')}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
-              >
-                Get Your Free Marketing Audit
-              </button>
+              <Link to="/" className="block" onClick={handleLogoClick}>
+                <img 
+                  ref={logoRef}
+                  src={LOGO_URL}
+                  alt="ArtVilson Media Logo"
+                  className="h-12 w-auto transform-gpu"
+                  loading="eager"
+                  decoding="async"
+                  style={{ 
+                    opacity: 0,
+                    willChange: 'transform, opacity'
+                  }}
+                />
+              </Link>
             </motion.div>
             
-            <motion.button 
-              className="md:hidden touch-manipulation relative w-6 h-6 flex items-center justify-center"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-nav"
-              variants={fadeIn}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              style={{
-                WebkitTapHighlightColor: 'transparent',
-                transform: 'translate3d(0,0,0)',
-                WebkitTransform: 'translate3d(0,0,0)',
-                transformOrigin: 'center center',
-                WebkitTransformOrigin: 'center center'
-              }}
+            <motion.div 
+              className="hidden md:flex items-center gap-8"
+              variants={staggerContainer}
+            >
+              {navLinks.map((link) => (
+                <motion.button
+                  key={link.id}
+                  onClick={() => handleScroll(link.id)}
+                  className="text-gray-900 font-medium text-sm hover:text-blue-600 transition-colors"
+                  variants={fadeIn}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {link.label}
+                </motion.button>
+              ))}
+            </motion.div>
+            
+            <motion.div 
+              className="flex items-center gap-4"
+              variants={staggerContainer}
             >
               <motion.div
-                className="absolute inset-0 flex items-center justify-center"
-                initial="closed"
-                animate={isMenuOpen ? "open" : "closed"}
-                variants={burgerIconVariants}
+                className="hidden md:block"
+                variants={fadeIn}
+              >
+                <button
+                  onClick={() => handleScroll('contact')}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                >
+                  Get Your Free Marketing Audit
+                </button>
+              </motion.div>
+              
+              <motion.button 
+                className="md:hidden touch-manipulation relative w-6 h-6 flex items-center justify-center"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-nav"
+                variants={fadeIn}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 style={{
+                  WebkitTapHighlightColor: 'transparent',
                   transform: 'translate3d(0,0,0)',
                   WebkitTransform: 'translate3d(0,0,0)',
-                  backfaceVisibility: 'hidden',
-                  WebkitBackfaceVisibility: 'hidden',
                   transformOrigin: 'center center',
                   WebkitTransformOrigin: 'center center'
                 }}
               >
-                {isMenuOpen ? 
-                  <X className="w-6 h-6" /> : 
-                  <Menu className="w-6 h-6" />
-                }
-              </motion.div>
-            </motion.button>
+                <motion.div
+                  className="absolute inset-0 flex items-center justify-center"
+                  initial="closed"
+                  animate={isMenuOpen ? "open" : "closed"}
+                  variants={burgerIconVariants}
+                  style={{
+                    transform: 'translate3d(0,0,0)',
+                    WebkitTransform: 'translate3d(0,0,0)',
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transformOrigin: 'center center',
+                    WebkitTransformOrigin: 'center center'
+                  }}
+                >
+                  {isMenuOpen ? 
+                    <X className="w-6 h-6" /> : 
+                    <Menu className="w-6 h-6" />
+                  }
+                </motion.div>
+              </motion.button>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
       
       <AnimatePresence>
