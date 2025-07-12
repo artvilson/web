@@ -193,6 +193,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
         </div>
       </motion.section>
     </div>
+    </div>
   );
 };
 
