@@ -99,8 +99,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
               <div className="text-[#161616]">Skip the hiring headaches. Get a proven team that specializes in growing E‑commerce & Beauty businesses in the UAE & USA markets.</div>
             </div>
           </motion.div>
-          
-          {/* Business Benefits Mini Blocks */}
         </div>
 
         {/* Business Benefits Mini Blocks - Full width container */}
@@ -148,7 +146,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
                 Customers talk to AI that sounds natural, helpful, and real
               </p>
             </motion.div>
-          </motion.div>
+          </div>
         </motion.div>
 
         <div className="max-w-4xl mx-auto text-center">
