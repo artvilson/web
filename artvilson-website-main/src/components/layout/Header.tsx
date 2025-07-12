@@ -13,7 +13,7 @@ interface HeaderProps {
   toggleDarkMode: () => void;
 }
 
-const LOGO_URL = "https://psymmxfknulxspcbvqmr.supabase.co/storage/v1/object/sign/logos/logo_website.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9kNTI1NmExNi01MjY0LTQ3ZTgtODZiMi02MGIxNDk1MDQ4MTEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJsb2dvcy9sb2dvX3dlYnNpdGUucG5nIiwiaWF0IjoxNzUxNTQxNjQxLCJleHAiOjIwNjY5MDE2NDF9.KHbxut1mSTpj0rEXczK5M_y1DOE38I7AwWwwQr-vj0Y";
+const LOGO_URL = "https://erhykqwdkwolyhjjbyrc.supabase.co/storage/v1/object/public/logos//Artvilson_Media_Logo-1%20(1).png";
 
 export function Header({ isMenuOpen, setIsMenuOpen, handleScroll, isDarkMode, toggleDarkMode }: HeaderProps) {
   const menuRef = useRef<HTMLDivElement>(null);
@@ -145,18 +145,22 @@ export function Header({ isMenuOpen, setIsMenuOpen, handleScroll, isDarkMode, to
   };
 
   const navLinks = [
-    { label: 'How We Build It', id: 'process-steps' },
-    { label: 'Pricing', id: 'pricing' },
-    { label: 'Demo Call', id: 'demo-call' }
+    { label: 'Home', id: 'home' },
+    { label: 'Services', id: 'services' },
+    { label: 'FAQ', id: 'faq' },
+    { label: 'Cases', id: 'cases' },
+    { label: 'Clients', id: 'clients' },
+    { label: 'Contact', id: 'contact' }
   ];
 
   return (
     <header 
       ref={headerRef}
-      className="fixed top-0 left-0 right-0 z-50 bg-[#f5f5f7]"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100"
       onClick={handleHeaderClick}
     >
       <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-3">
         <motion.div 
           className="flex justify-between items-center"
           variants={staggerContainer}
@@ -169,8 +173,8 @@ export function Header({ isMenuOpen, setIsMenuOpen, handleScroll, isDarkMode, to
               <img 
                 ref={logoRef}
                 src={LOGO_URL}
-                alt="iSendora Logo"
-                className="w-28 h-28 -mt-8 -mb-8 transform-gpu"
+                alt="ArtVilson Media Logo"
+                className="h-12 w-auto transform-gpu"
                 loading="eager"
                 decoding="async"
                 style={{ 
@@ -182,14 +186,14 @@ export function Header({ isMenuOpen, setIsMenuOpen, handleScroll, isDarkMode, to
           </motion.div>
           
           <motion.div 
-            className="hidden md:flex items-center gap-8 absolute left-1/2 transform -translate-x-1/2"
+            className="hidden md:flex items-center gap-8"
             variants={staggerContainer}
           >
             {navLinks.map((link) => (
               <motion.button
                 key={link.id}
                 onClick={() => handleScroll(link.id)}
-                className="text-[#1a1a1a] font-semibold text-sm hover:text-gray-900 transition-colors"
+                className="text-gray-900 font-medium text-sm hover:text-blue-600 transition-colors"
                 variants={fadeIn}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
@@ -203,7 +207,17 @@ export function Header({ isMenuOpen, setIsMenuOpen, handleScroll, isDarkMode, to
             className="flex items-center gap-4"
             variants={staggerContainer}
           >
-            {/* Sign In button is now hidden */}
+            <motion.div
+              className="hidden md:block"
+              variants={fadeIn}
+            >
+              <button
+                onClick={() => handleScroll('contact')}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+              >
+                Get Your Free Marketing Audit
+              </button>
+            </motion.div>
             
             <motion.button 
               className="md:hidden touch-manipulation relative w-6 h-6 flex items-center justify-center"
@@ -252,7 +266,7 @@ export function Header({ isMenuOpen, setIsMenuOpen, handleScroll, isDarkMode, to
             <motion.div 
               ref={menuRef}
               id="mobile-nav"
-              className="md:hidden bg-[#f5f5f7] border-t border-gray-200"
+              className="md:hidden bg-white border-t border-gray-100"
               initial="hidden"
               animate="visible"
               exit="exit"
@@ -273,13 +287,23 @@ export function Header({ isMenuOpen, setIsMenuOpen, handleScroll, isDarkMode, to
                       handleScroll(link.id);
                       setIsMenuOpen(false);
                     }}
-                    className="w-full text-left text-[#1a1a1a] font-semibold text-sm hover:text-gray-900 transition-colors py-3"
+                    className="w-full text-left text-gray-900 font-medium text-sm hover:text-blue-600 transition-colors py-3"
                     whileTap={{ scale: 0.98 }}
                   >
                     {link.label}
                   </motion.button>
                 ))}
-                {/* Sign In button is also hidden in mobile menu */}
+                <motion.div className="pt-2">
+                  <button
+                    onClick={() => {
+                      handleScroll('contact');
+                      setIsMenuOpen(false);
+                    }}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                  >
+                    Get Your Free Marketing Audit
+                  </button>
+                </motion.div>
               </div>
             </motion.div>
           </FocusTrap>
