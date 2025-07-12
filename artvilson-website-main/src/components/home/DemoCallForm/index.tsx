@@ -181,8 +181,8 @@ const DemoFormContent: React.FC<DemoCallFormProps> = ({ isDarkMode, formRef }) =
               <div className="flex justify-start">
                 <motion.button 
                   type="submit"
-                  className={`bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-xl font-medium transition-all ${
-                    isButtonDisabled() ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105 active:scale-95'
+                  className={`bg-white hover:bg-gray-50 text-black border-2 border-black px-8 py-3 rounded-xl font-medium transition-all ${
+                    isButtonDisabled() ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105 active:scale-95 hover:shadow-md'
                   }`}
                   disabled={isButtonDisabled()}
                   whileHover={{ scale: isButtonDisabled() ? 1 : 1.05 }}

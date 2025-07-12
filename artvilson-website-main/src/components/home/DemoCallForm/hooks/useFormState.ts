@@ -61,48 +61,45 @@ export const useFormState = ({ executeRecaptcha }: UseFormStateProps) => {
     setSubmitError(null);
     
     try {
-      const token = await executeRecaptcha('submit_demo_form');
+      // Отправка в Telegram
+      const telegramBotToken = '7769253092:AAF7SVMgAWuMYt51KW8BOWoHBKV3Wi2_xtE';
+      const chatId = '@your_channel_or_chat_id'; // Замените на ваш chat_id или канал
       
-      const webhookUrl = import.meta.env.VITE_WEBHOOK_DEMO_URL;
-      
-      if (!webhookUrl) {
-        throw new Error('Webhook URL is not configured');
-      }
-      
-      console.log('Submitting form to webhook:', webhookUrl);
-      console.log('Form data:', formData);
+      const message = `
+🔔 Новая заявка с сайта!
+
+👤 Имя: ${formData.name}
+📧 Email: ${formData.email}
+📱 Телефон: ${formData.phoneNumber}
+🌐 Сайт: ${formData.businessWebsite || 'Не указан'}
+💬 Сообщение: ${formData.message || 'Не указано'}
+
+⏰ Время: ${new Date().toLocaleString('ru-RU')}
+      `.trim();
 
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 10000);
 
-      const response = await fetch(webhookUrl, {
+      const response = await fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Origin': window.location.origin
         },
         body: JSON.stringify({
-          ...formData,
-          businessWebsite: formData.businessWebsite 
-            ? formData.businessWebsite.startsWith('http') 
-              ? formData.businessWebsite 
-              : `https://${formData.businessWebsite}`
-            : '',
-          phoneNumber: cleanPhoneNumber(formData.phoneNumber),
-          submittedAt: new Date().toISOString(),
-          source: 'website-demo-request',
-          sessionId,
-          recaptchaToken: token
+          chat_id: chatId,
+          text: message,
+          parse_mode: 'HTML'
         }),
         signal: controller.signal
       });
       
       clearTimeout(timeoutId);
 
-      console.log('Webhook response:', response);
+      console.log('Telegram response:', response);
       
       if (!response.ok) {
-        throw new Error(`Failed to submit form: ${response.status} ${response.statusText}`);
+        const errorData = await response.json();
+        throw new Error(`Failed to send to Telegram: ${response.status} - ${errorData.description || response.statusText}`);
       }
 
       setSubmitSuccess(true);
@@ -119,10 +116,8 @@ export const useFormState = ({ executeRecaptcha }: UseFormStateProps) => {
         errorMessage = 'Request timed out. Please check your internet connection and try again.';
       } else if (error.message === 'Failed to fetch') {
         errorMessage = 'Network error. Please check your internet connection and try again.';
-      } else if (error.message.includes('Failed to submit form:')) {
-        errorMessage = 'Server error. Please try again later.';
-      } else if (error.message === 'Webhook URL is not configured') {
-        errorMessage = 'The form submission service is not properly configured. Please contact support.';
+      } else if (error.message.includes('Failed to send to Telegram:')) {
+        errorMessage = 'Failed to send message. Please try again later.';
       }
       
       setSubmitError(errorMessage);
