@@ -198,6 +198,7 @@ export function Header({ isMenuOpen, setIsMenuOpen, handleScroll, isDarkMode, to
                 whileTap={{ scale: 0.98 }}
               >
                 {link.label}
+                {link.label}
               </motion.button>
             ))}
           </motion.div>
