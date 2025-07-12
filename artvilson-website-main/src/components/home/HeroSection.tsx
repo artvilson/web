@@ -101,10 +101,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
           </motion.div>
           
           {/* Business Benefits Mini Blocks */}
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12"
-            variants={ctaGroupVariants}
-          >
+        </div>
+
+        {/* Business Benefits Mini Blocks - Full width container */}
+        <motion.div 
+          className="max-w-6xl mx-auto mb-12"
+          variants={ctaGroupVariants}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <motion.div 
               className={`${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-white'} p-5 rounded-xl text-center border ${isDarkMode ? 'border-gray-800' : 'border-gray-200'} hover:shadow-[0_4px_10px_rgba(0,0,0,0.06)] transition duration-300 ease-[cubic-bezier(0.42,0,0.58,1)]`}
               whileHover={{ scale: 1.015 }}
@@ -145,7 +149,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
               </p>
             </motion.div>
           </motion.div>
+        </motion.div>
 
+        <div className="max-w-4xl mx-auto text-center">
           {/* CTA Button */}
           <motion.div 
             className="flex flex-col items-center gap-2"
