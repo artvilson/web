@@ -17,6 +17,16 @@ export const cleanPhoneNumber = (phoneNumber: string): string => {
     return `+${digits}`;
   }
   
+  // For UAE numbers (9 digits starting with 5)
+  if (digits.length === 9 && digits.startsWith('5')) {
+    return `+971${digits}`;
+  }
+  
+  // For UAE numbers with country code (12 digits starting with 971)
+  if (digits.length === 12 && digits.startsWith('971')) {
+    return `+${digits}`;
+  }
+  
   // For international numbers, add + if missing
   return `+${digits}`;
 };
@@ -42,6 +52,22 @@ export const formatPhoneForDisplay = (phoneNumber: string): string => {
     const prefix = digits.slice(4, 7);
     const line = digits.slice(7);
     return `+1 (${areaCode}) ${prefix}-${line}`;
+  }
+  
+  // UAE format: +971 XX XXX XXXX
+  if (digits.length === 9 && digits.startsWith('5')) {
+    const part1 = digits.slice(0, 2);
+    const part2 = digits.slice(2, 5);
+    const part3 = digits.slice(5);
+    return `+971 ${part1} ${part2} ${part3}`;
+  }
+  
+  // UAE format with country code: +971 XX XXX XXXX
+  if (digits.length === 12 && digits.startsWith('971')) {
+    const part1 = digits.slice(3, 5);
+    const part2 = digits.slice(5, 8);
+    const part3 = digits.slice(8);
+    return `+971 ${part1} ${part2} ${part3}`;
   }
   
   // International format: +XX XXX XXX XXX
@@ -143,11 +169,27 @@ export const validatePhoneNumber = (
     };
   }
   
+  // Handle UAE numbers (9 digits starting with 5)
+  if (digits.length === 9 && digits.startsWith('5')) {
+    return { 
+      isValid: true,
+      formattedNumber: formatPhoneForDisplay(digits)
+    };
+  }
+  
+  // Handle UAE numbers with country code (12 digits starting with 971)
+  if (digits.length === 12 && digits.startsWith('971')) {
+    return { 
+      isValid: true,
+      formattedNumber: formatPhoneForDisplay(digits)
+    };
+  }
+  
   // For international numbers
   if (digits.length >= 10 && digits.length <= 15) {
     return { 
       isValid: false,
-      message: "Sorry, we currently only support US and Canadian phone numbers",
+      message: "Sorry, we currently only support US, Canadian, and UAE phone numbers",
       formattedNumber: `+${digits}`
     };
   }
@@ -165,13 +207,22 @@ export const phoneNumberSchema = z.string()
   .transform(value => value.replace(/[^\d]/g, ''))
   .refine(
     (digits) => {
-      return (digits.length === 10) || (digits.length === 11 && digits.startsWith('1'));
+      return (digits.length === 10) || 
+             (digits.length === 11 && digits.startsWith('1')) ||
+             (digits.length === 9 && digits.startsWith('5')) ||
+             (digits.length === 12 && digits.startsWith('971'));
     },
-    { message: "Please enter a valid US or Canadian phone number" }
+    { message: "Please enter a valid US, Canadian, or UAE phone number" }
   )
   .transform(digits => {
     if (digits.length === 10) {
       return `+1${digits}`;
+    }
+    if (digits.length === 9 && digits.startsWith('5')) {
+      return `+971${digits}`;
+    }
+    if (digits.length === 12 && digits.startsWith('971')) {
+      return `+${digits}`;
     }
     return `+${digits}`;
   });

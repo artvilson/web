@@ -129,7 +129,7 @@ const DemoFormContent: React.FC<DemoCallFormProps> = ({ isDarkMode, formRef }) =
                     type="tel"
                     id="phoneNumber"
                     name="phoneNumber"
-                    placeholder="+1-999-999-9999"
+                    placeholder="+971 50 123 4567 or +1 999 999 9999"
                     value={formData.phoneNumber || ''}
                     onChange={handlePhoneInput}
                     onBlur={handlePhoneBlur}
