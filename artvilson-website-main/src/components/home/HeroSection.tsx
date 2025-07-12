@@ -96,7 +96,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text'
               }}>Get Your Marketing Department Ready in 48 Hours</div>
-              <div className="text-2xl md:text-4xl lg:text-5xl text-[#161616]">Skip hiring headaches. Work with experts growing E-commerce & Beauty in the UAE & USA</div>
+              <div className="text-xl md:text-3xl lg:text-4xl text-[#161616]">Skip hiring headaches. Work with experts growing E-commerce & Beauty in the UAE & USA</div>
             </div>
           </motion.div>
         </div>
