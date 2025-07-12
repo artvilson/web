@@ -89,14 +89,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
             className="mb-6 space-y-2"
             variants={titleVariants}
           >
-            <div className="text-xl md:text-5xl lg:text-6xl font-bold">
+            <div className="text-3xl md:text-5xl lg:text-6xl font-bold">
               <div style={{
                 background: 'linear-gradient(90deg, #FF7A00 0%, #FF4D4D 50%, #9333EA 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text'
               }}>Get Your Marketing Department Ready in 48 Hours</div>
-              <div className="text-[#161616]">Skip the hiring headaches. Get a proven European team that specializes in growing E‑commerce & Beauty businesses in the UAE & USA markets.</div>
+              <div className="text-[#161616]">Skip the hiring headaches. Get a proven team that specializes in growing E‑commerce & Beauty businesses in the UAE & USA markets.</div>
             </div>
           </motion.div>
           
