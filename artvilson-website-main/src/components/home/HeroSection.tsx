@@ -86,7 +86,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.div 
-            className="mb-6 space-y-2"
+            className="mb-12 space-y-6"
             variants={titleVariants}
           >
             <div className="text-3xl md:text-5xl lg:text-6xl font-bold">
@@ -104,7 +104,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
         <div className="max-w-4xl mx-auto text-center">
           {/* CTA Button */}
           <motion.div 
-            className="flex flex-col items-center gap-2"
+            className="flex flex-col items-center gap-2 mt-8"
             variants={ctaGroupVariants}
           >
             <motion.button 
@@ -131,7 +131,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
                 </span>
               </div>
             </motion.button>
-            <div className="space-y-1">
+            <div className="space-y-0.5">
               <p className="text-black text-base font-medium">
                 No long-term contracts required
               </p>
