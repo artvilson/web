@@ -37,7 +37,7 @@ export function SuccessDialog({ open, onOpenChange }: SuccessDialogProps) {
               Thank You!
             </DialogTitle>
             <DialogDescription className="text-base text-gray-600">
-              Our AI assistant will be calling you shortly—pick up to experience it in action!
+              Our manager will be contacting you shortly!
             </DialogDescription>
           </div>
         </DialogHeader>
