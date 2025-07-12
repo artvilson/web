@@ -43,7 +43,7 @@ const DemoFormContent: React.FC<DemoCallFormProps> = ({ isDarkMode, formRef }) =
       ref={formRef} 
       className="py-16 relative overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #E91E63 0%, #FF5722 100%)'
+        background: 'linear-gradient(90deg, #FF7A00 0%, #FF4D4D 100%)'
       }}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -90,7 +90,7 @@ const DemoFormContent: React.FC<DemoCallFormProps> = ({ isDarkMode, formRef }) =
                     value={formData.name || ''}
                     onChange={handleInputChange}
                     onBlur={handleBlur}
-                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                     required
                   />
                   {touchedFields.name && formErrors.name && (
@@ -110,7 +110,7 @@ const DemoFormContent: React.FC<DemoCallFormProps> = ({ isDarkMode, formRef }) =
                     value={formData.email || ''}
                     onChange={handleInputChange}
                     onBlur={handleBlur}
-                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                     required
                   />
                   {touchedFields.email && formErrors.email && (
@@ -133,7 +133,7 @@ const DemoFormContent: React.FC<DemoCallFormProps> = ({ isDarkMode, formRef }) =
                     value={formData.phoneNumber || ''}
                     onChange={handlePhoneInput}
                     onBlur={handlePhoneBlur}
-                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                     required
                   />
                   {touchedFields.phoneNumber && formErrors.phoneNumber && (
@@ -153,7 +153,7 @@ const DemoFormContent: React.FC<DemoCallFormProps> = ({ isDarkMode, formRef }) =
                     value={formData.businessWebsite || ''}
                     onChange={handleInputChange}
                     onBlur={handleBlur}
-                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black transition-all"
                   />
                   {touchedFields.businessWebsite && formErrors.businessWebsite && (
                     <p className="mt-1 text-sm text-red-500">{formErrors.businessWebsite}</p>
@@ -173,7 +173,7 @@ const DemoFormContent: React.FC<DemoCallFormProps> = ({ isDarkMode, formRef }) =
                   placeholder="Tell us briefly about your needs..."
                   value={formData.message || ''}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black transition-all resize-none"
                 />
               </div>
 
