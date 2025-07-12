@@ -41,59 +41,178 @@ const DemoFormContent: React.FC<DemoCallFormProps> = ({ isDarkMode, formRef }) =
   return (
     <motion.section 
       ref={formRef} 
-      className={`py-16 ${isDarkMode ? 'bg-black' : 'bg-gray-50'}`}
+      className="py-16 relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(135deg, #E91E63 0%, #FF5722 100%)'
+      }}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <div className="container mx-auto px-4">
-        <FormHeader isDarkMode={isDarkMode} />
-        
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div 
-          className="max-w-3xl mx-auto"
+          className="max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.div 
-            className={`${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-white'} rounded-lg overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] backdrop-blur-sm`}
-            initial={{ boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)" }}
-            whileInView={{ 
-              boxShadow: isDarkMode 
-                ? "0 20px 40px -5px rgba(0, 0, 0, 0.3), 0 8px 15px -6px rgba(0, 0, 0, 0.2)" 
-                : "0 20px 40px -5px rgba(0, 0, 0, 0.1), 0 8px 15px -6px rgba(0, 0, 0, 0.05)" 
-            }}
+            className="bg-white rounded-3xl p-8 shadow-2xl"
+            initial={{ scale: 0.95 }}
+            whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="p-8" noValidate>
-              <FormFields 
-                formData={formData}
-                formErrors={formErrors}
-                formSuccess={formSuccess}
-                isDarkMode={isDarkMode}
-                touchedFields={touchedFields}
-                handleInputChange={handleInputChange}
-                handlePhoneInput={handlePhoneInput}
-                handlePhoneBlur={handlePhoneBlur}
-                handleBlur={handleBlur}
-              />
+            {/* Header */}
+            <div className="mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">
+                Get in Touch
+              </h2>
+              <p className="text-gray-600">
+                Leave your message and we'll get back to you shortly.
+              </p>
+            </div>
 
-              <FormSubmitButton 
-                isSubmitting={isSubmitting}
-                blockedUntil={blockedUntil}
-                timeRemaining={timeRemaining}
-                isButtonDisabled={isButtonDisabled()}
-                submitSuccess={submitSuccess}
-                submitError={submitError}
-              />
+            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+              {/* Name and Email Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Your name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="John Doe"
+                    value={formData.name || ''}
+                    onChange={handleInputChange}
+                    onBlur={handleBlur}
+                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+                    required
+                  />
+                  {touchedFields.name && formErrors.name && (
+                    <p className="mt-1 text-sm text-red-500">{formErrors.name}</p>
+                  )}
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email address
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@domain.com"
+                    value={formData.email || ''}
+                    onChange={handleInputChange}
+                    onBlur={handleBlur}
+                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+                    required
+                  />
+                  {touchedFields.email && formErrors.email && (
+                    <p className="mt-1 text-sm text-red-500">{formErrors.email}</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Phone and Website Row */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    placeholder="+1-999-999-9999"
+                    value={formData.phoneNumber || ''}
+                    onChange={handlePhoneInput}
+                    onBlur={handlePhoneBlur}
+                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+                    required
+                  />
+                  {touchedFields.phoneNumber && formErrors.phoneNumber && (
+                    <p className="mt-1 text-sm text-red-500">{formErrors.phoneNumber}</p>
+                  )}
+                </div>
+                
+                <div>
+                  <label htmlFor="businessWebsite" className="block text-sm font-medium text-gray-700 mb-2">
+                    Website URL
+                  </label>
+                  <input
+                    type="url"
+                    id="businessWebsite"
+                    name="businessWebsite"
+                    placeholder="https://example.com"
+                    value={formData.businessWebsite || ''}
+                    onChange={handleInputChange}
+                    onBlur={handleBlur}
+                    className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all"
+                  />
+                  {touchedFields.businessWebsite && formErrors.businessWebsite && (
+                    <p className="mt-1 text-sm text-red-500">{formErrors.businessWebsite}</p>
+                  )}
+                </div>
+              </div>
+
+              {/* Message */}
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  placeholder="Tell us briefly about your needs..."
+                  value={formData.message || ''}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-gray-50 border-0 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all resize-none"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex justify-start">
+                <motion.button 
+                  type="submit"
+                  className={`bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-xl font-medium transition-all ${
+                    isButtonDisabled() ? 'opacity-50 cursor-not-allowed' : 'hover:scale-105 active:scale-95'
+                  }`}
+                  disabled={isButtonDisabled()}
+                  whileHover={{ scale: isButtonDisabled() ? 1 : 1.05 }}
+                  whileTap={{ scale: isButtonDisabled() ? 1 : 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {isSubmitting ? (
+                    <span>Sending...</span>
+                  ) : blockedUntil !== null && Date.now() < blockedUntil ? (
+                    <span>Please Wait {timeRemaining}s</span>
+                  ) : (
+                    <span>Submit</span>
+                  )}
+                </motion.button>
+              </div>
+
+              {/* Error message */}
+              {submitError && (
+                <motion.div 
+                  className="mt-4 text-red-500 text-center"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {submitError}
+                </motion.div>
+              )}
             </form>
           </motion.div>
         </motion.div>
-
-        <FormFooter isDarkMode={isDarkMode} />
       </div>
 
       <SuccessDialog 

@@ -7,9 +7,8 @@ const initialFormData: FormData = {
   name: '',
   email: '',
   businessWebsite: '',
-  voiceAvatar: '',
   phoneNumber: '',
-  timeZone: 'America/New_York'
+  message: ''
 };
 
 interface UseFormStateProps {
