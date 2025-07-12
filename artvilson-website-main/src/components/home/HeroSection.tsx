@@ -89,7 +89,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
             className="mb-6 space-y-2"
             variants={titleVariants}
           >
-            <div className="text-3xl md:text-5xl lg:text-6xl font-bold">
+            <div className="text-2xl md:text-5xl lg:text-6xl font-bold">
               <div style={{
                 background: 'linear-gradient(90deg, #FF7A00 0%, #FF4D4D 50%, #9333EA 100%)',
                 WebkitBackgroundClip: 'text',
