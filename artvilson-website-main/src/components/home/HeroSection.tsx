@@ -86,7 +86,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
       >
         <div className="max-w-4xl mx-auto text-center">
           <motion.div 
-            className="mb-12 space-y-4"
+            className="mb-12 space-y-6"
             variants={titleVariants}
           >
             <div className="text-3xl md:text-5xl lg:text-6xl font-bold">
