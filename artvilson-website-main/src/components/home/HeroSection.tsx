@@ -84,29 +84,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
         initial="hidden"
         animate="visible"
       >
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div 
             className="mb-6 space-y-2"
             variants={titleVariants}
           >
             <div className="text-3xl md:text-5xl lg:text-6xl font-bold">
-              <div className="text-[#161616]">Get Your Marketing Department Ready in 48 Hours</div>
               <div style={{
                 background: 'linear-gradient(90deg, #FF7A00 0%, #FF4D4D 50%, #9333EA 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text'
-              }}>Skip the hiring headaches.</div>
+              }}>Get Your Marketing Department Ready in 48 Hours</div>
+              <div className="text-[#161616]">Skip the hiring headaches.</div>
             </div>
-            
-            <motion.div 
-              className="mt-6 space-y-2"
-              variants={subtitleVariants}
-            >
-              <div className="text-sm text-gray-600">
-                Get a proven European team that specializes in growing E‑commerce & Beauty businesses in the UAE & USA markets.
-              </div>
-            </motion.div>
           </motion.div>
           
           {/* CTA Button */}
