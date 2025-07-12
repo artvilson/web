@@ -89,7 +89,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
             className="mb-12 space-y-6"
             variants={titleVariants}
           >
-            <div className="text-3xl md:text-5xl lg:text-6xl font-bold">
+            <div className="text-3xl md:text-5xl lg:text-6xl font-bold space-y-4">
               <div style={{
                 background: 'linear-gradient(90deg, #FF7A00 0%, #FF4D4D 50%, #9333EA 100%)',
                 WebkitBackgroundClip: 'text',
@@ -104,7 +104,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
         <div className="max-w-4xl mx-auto text-center">
           {/* CTA Button */}
           <motion.div 
-            className="flex flex-col items-center gap-2 mt-8"
+            className="flex flex-col items-center gap-2 mt-6"
             variants={ctaGroupVariants}
           >
             <motion.button 
