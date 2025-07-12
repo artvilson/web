@@ -96,58 +96,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ isDarkMode, handleScroll }) =
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text'
               }}>Get Your Marketing Department Ready in 48 Hours</div>
-              <div className="text-[#161616]">Skip hiring headaches. Work with experts growing E-commerce & Beauty in the UAE & USA</div>
+              <div className="text-2xl md:text-4xl lg:text-5xl text-[#161616]">Skip hiring headaches. Work with experts growing E-commerce & Beauty in the UAE & USA</div>
             </div>
           </motion.div>
         </div>
-
-        {/* Business Benefits Mini Blocks - Full width container */}
-        <motion.div 
-          className="max-w-6xl mx-auto mb-12"
-          variants={ctaGroupVariants}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <motion.div 
-              className={`${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-white'} p-5 rounded-xl text-center border ${isDarkMode ? 'border-gray-800' : 'border-gray-200'} hover:shadow-[0_4px_10px_rgba(0,0,0,0.06)] transition duration-300 ease-[cubic-bezier(0.42,0,0.58,1)]`}
-              whileHover={{ scale: 1.015 }}
-            >
-              <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Instant Response</h3>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                No waiting. No missed leads. Every call answered in real-time
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className={`${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-white'} p-5 rounded-xl text-center border ${isDarkMode ? 'border-gray-800' : 'border-gray-200'} hover:shadow-[0_4px_10px_rgba(0,0,0,0.06)] transition duration-300 ease-[cubic-bezier(0.42,0,0.58,1)]`}
-              whileHover={{ scale: 1.015 }}
-            >
-              <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Revenue Insights</h3>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                Track buyer behavior, spot drop-offs, boost conversion
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className={`${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-white'} p-5 rounded-xl text-center border ${isDarkMode ? 'border-gray-800' : 'border-gray-200'} hover:shadow-[0_4px_10px_rgba(0,0,0,0.06)] transition duration-300 ease-[cubic-bezier(0.42,0,0.58,1)]`}
-              whileHover={{ scale: 1.015 }}
-            >
-              <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Managed Setup</h3>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                We handle the integration — zero effort on your side
-              </p>
-            </motion.div>
-
-            <motion.div 
-              className={`${isDarkMode ? 'bg-[#1a1a1a]' : 'bg-white'} p-5 rounded-xl text-center border ${isDarkMode ? 'border-gray-800' : 'border-gray-200'} hover:shadow-[0_4px_10px_rgba(0,0,0,0.06)] transition duration-300 ease-[cubic-bezier(0.42,0,0.58,1)]`}
-              whileHover={{ scale: 1.015 }}
-            >
-              <h3 className={`text-lg font-bold mb-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>Human-Like Voice</h3>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                Customers talk to AI that sounds natural, helpful, and real
-              </p>
-            </motion.div>
-          </div>
-        </motion.div>
 
         <div className="max-w-4xl mx-auto text-center">
           {/* CTA Button */}
