@@ -13,3 +13,4 @@
        
        {/* Integration Partners Marquee */}
        <IntegrationMarquee isDarkMode={isDarkMode} />
+   )
